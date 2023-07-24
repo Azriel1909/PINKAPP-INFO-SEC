@@ -2,7 +2,12 @@ const express = require('express');
 const helmet = require('helmet');
 const app = express();
 
+// * Hide Potentially Dangerous Information
 app.use(helmet.hidePoweredBy());
+
+// > Mitigate the Risk of Clickjacking
+app.use(helmet.frameguard({ action: 'deny'}));
+
 
 module.exports = app;
 const api = require('./server.js');
