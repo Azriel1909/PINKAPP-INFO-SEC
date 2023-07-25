@@ -24,6 +24,8 @@ app.use(helmet.hsts({ maxAge: timeInSeconds, force: true}));
 // ! Disable DNS Prefetching
 app.use(helmet.dnsPrefetchControl());
 
+// + Disable Client-Side Caching
+app.use(helmet.noCache());
 
 module.exports = app;
 const api = require('./server.js');
